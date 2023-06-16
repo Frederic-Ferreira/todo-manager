@@ -10,7 +10,7 @@ function ListView( { event }) {
     const [displayedNotes, setDisplayedNotes] = useState([])
     const [sortBy, setSortBy] = useState(null);
     const [sortOrder, setSortOrder] = useState("asc");
-    const { notes } = useNoteStore()
+    const { notes, addNote } = useNoteStore()
 
     useEffect(() => {
         let sortedNotes = notes;
@@ -56,7 +56,7 @@ function ListView( { event }) {
 
     return (
         <div className="flex flex-col gap-10 h-full">
-            <Modal handleModal={handleModal} />
+            <Modal handleModal={handleModal} addNote={addNote} />
             <div className="search-bar p-4 border-2 border-blue-100 rounded-md flex items-center justify-between gap-6">
                 <div className="order-btns flex items-center gap-6">
                     <Button event={() => {

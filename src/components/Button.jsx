@@ -1,6 +1,6 @@
-function Button({ text, event, classes, icon }) {
+function Button({ text, event, classes, icon, testid }) {
     return (
-        <div onClick={event} className={classes}>{text}{icon}</div>
+        <div data-testid={testid} onClick={event} className={classes}>{text}{icon}</div>
     );
 }
 
