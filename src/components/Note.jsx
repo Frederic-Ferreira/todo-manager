@@ -2,7 +2,7 @@ import moment from "moment";
 
 function Note({ event, style, title, note, createdAt, comment }) {
     return (
-        <div onClick={event} style={style} className="flex flex-col gap-4 bg-white p-4 rounded-lg shadow-lg hover:cursor-pointer">
+        <div onClick={event} style={style} className="note flex flex-col gap-4 bg-white p-4 rounded-lg shadow-lg hover:cursor-pointer">
             <div className="note-header p-2 rounded-md border border-b-1 border-black flex items-center justify-between">
                 <p className="text-xl truncate">{title}</p>
                 <p className="text-2xl">{note}/20</p>

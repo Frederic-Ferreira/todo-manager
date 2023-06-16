@@ -42,21 +42,23 @@ function DetailView({ id, event }) {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center relative">
+        <div className="detail-view flex flex-col justify-center items-center relative">
         <div className="flex flex-col gap-4 bg-white p-4 rounded-lg shadow-lg w-1/2">
             <div className="note-header p-2 rounded-md border border-1 border-black flex items-center justify-between">
                 {editing ? (
                     <input
+                        id="titre"
                         type="text"
                         value={updatedTitle}
                         onChange={(e) => setUpdatedTitle(e.target.value)}
                         className="text-xl truncate border border-1 border-gray-300 rounded-md"
                     />
                 ) : (
-                    <p className="text-xl truncate">{note.title}</p>
+                    <p className="titre text-xl truncate">{note.title}</p>
                 )}
                 {editing ? (
                     <input
+                        id="note"
                         type="text"
                         value={updatedNote}
                         onChange={(e) => setUpdatedNote(e.target.value)}
@@ -71,6 +73,7 @@ function DetailView({ id, event }) {
                     <p className="text-xl">Créé le :</p>
                     {editing ? (
                         <input
+                            id="date"
                             type="date"
                             value={updatedCreatedAt}
                             onChange={(e) => { console.log(e.target.value); setUpdatedCreatedAt(e.target.value)}}
@@ -84,6 +87,7 @@ function DetailView({ id, event }) {
                     <p className="text-xl">Commentaire :</p>
                     {editing ? (
                         <textarea
+                            id="comment"
                             value={updatedComment}
                             onChange={(e) => setUpdatedComment(e.target.value)}
                             className="text-lg font-light text-gray-800 truncate border border-1 border-gray-300 rounded-md"
@@ -95,11 +99,11 @@ function DetailView({ id, event }) {
             </div>
             <div className="flex justify-end gap-4 mt-4">
                 {editing && !confirmDelete ? (
-                    <button onClick={handleEdit} className="px-4 py-2 rounded-lg bg-blue-500 text-white">
+                    <button id="confirm-edit" onClick={handleEdit} className="px-4 py-2 rounded-lg bg-blue-500 text-white">
                         Enregistrer
                     </button>
                 ) : !editing && !confirmDelete ? (
-                    <button onClick={handleEdit} className="px-4 py-2 rounded-lg bg-blue-500 text-white">
+                    <button id='edit-btn' onClick={handleEdit} className="px-4 py-2 rounded-lg bg-blue-500 text-white">
                         Modifier
                     </button>
                 ) : (
